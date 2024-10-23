@@ -21,7 +21,7 @@
         <td>
       <div class="dropdown">
         <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-          
+          Actions
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li>
@@ -44,7 +44,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-            <%= form_with(model: student, format: :turbo_stream, data: { controller: "form", action: "ajax:success->form#closeModal" }) do |f| %>
+           <%= form_with(model: student, local: true, data: { turbo: false }) do |f| %>
                 <div class="form-group">
                   <%= f.label :name %>
                   <%= f.text_field :name, class: "form-control" %>
