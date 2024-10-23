@@ -1,6 +1,14 @@
 <div class="card mx-auto" style="width: 25rem;">
   <div class="card-body">
     <h5 class="card-title text-center">Teacher Login</h5>
+
+    <!-- Flash Error Messages -->
+    <% if flash[:alert] %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
         <%= f.label :email, class: "form-label" %>
@@ -16,7 +24,8 @@
         <%= f.submit "Login", class: "btn btn-primary w-100" %>
       </div>
     <% end %>
-      <div class="text-center mt-3">
+
+    <div class="text-center mt-3">
       <p class="mb-1">
         <%= link_to "Forgot your password?", new_password_path(resource_name), class: "link-secondary" %>
       </p>
